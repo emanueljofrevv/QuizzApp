@@ -40,6 +40,7 @@ function checkAnswer(answer) {
   }
 }
 
+document.getElementById("score-container").style.display = "none";
 document.getElementById("btn0").addEventListener("click", function () {
   checkAnswer(0);
 });
@@ -51,6 +52,15 @@ document.getElementById("btn2").addEventListener("click", function () {
 });
 document.getElementById("btn3").addEventListener("click", function () {
   checkAnswer(3);
+});
+document.getElementById("next").addEventListener("click", function () {
+  if (currentQuestion < questions.length) {
+    showQuestion();
+  } else {
+    document.getElementById("quiz-container").style.display = "none";
+    document.getElementById("score-container").style.display = "block";
+    document.getElementById("score").textContent = score;
+  }
 });
 
 showQuestion();
